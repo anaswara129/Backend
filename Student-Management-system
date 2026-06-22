@@ -20,16 +20,18 @@ def view_students():
     else:
         for student in students:
             print(student)
-  
-def delete_student():
-    name = input("Enter name: ")
 
-    if name in students:
-        students.remove(name)
-        print("Deleted")
-    else:
-        print("Not found")
-    
+def delete_student():
+    student_id = int(input("Enter student ID to delete: "))
+
+    for student in students:
+        if student["id"] == student_id:
+            students.remove(student)
+            print("Student deleted successfully")
+            return
+
+    print("Student not found")
+
 while True:
     print("\n===== Student Management System =====")
     print("1. Add Student")
@@ -54,4 +56,3 @@ while True:
     
     else:
     	print("Invalid choice. Please try again.")
-    
